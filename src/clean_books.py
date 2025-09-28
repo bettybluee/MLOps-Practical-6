@@ -12,11 +12,15 @@ class Cleaner:
         os.makedirs(os.path.dirname(db_file), exist_ok=True)
 
     def clean_text(self, text_series):
-        # 소문자화 및 공백 제거
         text_series = text_series.str.lower().str.strip()
-        # 필요시 특수문자 제거
         # text_series = text_series.str.replace(r"[^\w\s]", "", regex=True)
         return text_series
+
+    def add_price_label(self, df):
+        if "price" in df.columns:
+            df["price"] = df["price"].astype(float)
+            df["price_label"] = df["price"].apply(lambda x: "cheap" if x <= 10 else "expensive")
+        return df
 
     def run(self):
         # 1. Load CSV
@@ -26,24 +30,26 @@ class Cleaner:
         # 2. Clean text
         df["title"] = self.clean_text(df["title"])
 
-        # 3. Save cleaned CSV
+        # 3. Add price label
+        df = self.add_price_label(df)
+
+        # 4. Save cleaned CSV
         df.to_csv(self.cleaned_file, index=False)
         print(f"Saved cleaned dataset to {self.cleaned_file}")
 
-        # 4. Store in SQLite
+        # 5. Store in SQLite
         conn = sqlite3.connect(self.db_file)
         df.to_sql("books", conn, if_exists="replace", index=False)
         conn.close()
         print(f"Stored cleaned dataset in SQLite: {self.db_file}")
 
-        # 5. Verify
+        # 6. Verify
         conn = sqlite3.connect(self.db_file)
         check = pd.read_sql("SELECT * FROM books LIMIT 5;", conn)
         conn.close()
         print("🔍 Preview from SQLite:")
         print(check)
 
-# --- 실행 ---
 if __name__ == "__main__":
     cleaner = Cleaner()
     cleaner.run()

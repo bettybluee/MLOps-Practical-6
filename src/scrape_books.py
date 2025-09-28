@@ -11,16 +11,24 @@ class ScraperParser:
         all_books = []
 
         for filepath in glob.glob(f"{self.raw_dir}/*.html"):
-            label = os.path.basename(filepath).split("-")[0]  # 파일 이름에서 장르 추출
+            label = os.path.basename(filepath).split("-")[0]  
             
             with open(filepath, "r", encoding="utf-8") as f:
                 html = f.read()
             
             soup = BeautifulSoup(html, "html.parser")
+            
             titles = [a["title"] for a in soup.find_all("a") if a.get("title")]
             
-            for t in titles:
-                all_books.append({"title": t, "label": label})
+            prices = [p.text.strip() for p in soup.find_all("p", class_="price_color")]
+            
+            for t, p in zip(titles, prices):
+                price_value = float(p.replace("£",""))
+                all_books.append({
+                    "title": t,
+                    "label": label,
+                    "price": price_value
+                })
         
         return all_books
 
@@ -29,7 +37,6 @@ class ScraperParser:
         df.to_csv(self.processed_file, index=False)
         print(f"Saved {len(df)} books into {self.processed_file}")
 
-# --- 실행 ---
 if __name__ == "__main__":
     parser = ScraperParser()
     books = parser.parse_html()
