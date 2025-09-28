@@ -1,0 +1,88 @@
+Last login: Sun Sep 28 08:37:44 on ttys000
+(base) bettykim@Bettys-MacBook-Air ~ % pwd
+/Users/bettykim
+(base) bettykim@Bettys-MacBook-Air ~ % ls
+Applications		Pictures		data			pfds_grades.csv
+Desktop			Programming Assignment	environment.yml		pfds_info.txt
+Documents		Public			git-practice-start	pfds_name_grade.csv
+Downloads		Untitled.ipynb		logs			requirements.txt
+Library			Untitled1.ipynb		my_grades.csv		scikit_learn_data
+Movies			Zotero			pdfs_grades.csv		src
+Music			anaconda_projects	pfds_best.csv		week4-docker
+(base) bettykim@Bettys-MacBook-Air ~ % cd Desktop
+(base) bettykim@Bettys-MacBook-Air Desktop % ls
+Application	Documents	Master DSS	Pre-Master DSS
+(base) bettykim@Bettys-MacBook-Air Desktop % cd "Master DSS"
+(base) bettykim@Bettys-MacBook-Air Master DSS % ls
+Data Mining				Reproducibility & Model Deployment
+Programming for Data Science		Statistics & Methodology
+(base) bettykim@Bettys-MacBook-Air Master DSS % cd "Reproducibility & Model Deployment"
+(base) bettykim@Bettys-MacBook-Air Reproducibility & Model Deployment % mkdir test-clone
+(base) bettykim@Bettys-MacBook-Air Reproducibility & Model Deployment % cd test-clone
+(base) bettykim@Bettys-MacBook-Air test-clone % git clone https://github.com/bettybluee/MLOps-Practical-5.git
+Cloning into 'MLOps-Practical-5'...
+remote: Enumerating objects: 11138, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 11138 (delta 0), reused 0 (delta 0), pack-reused 11135 (from 2)
+Receiving objects: 100% (11138/11138), 74.78 MiB | 10.91 MiB/s, done.
+Resolving deltas: 100% (1259/1259), done.
+Updating files: 100% (10899/10899), done.
+(base) bettykim@Bettys-MacBook-Air test-clone % cd MLOps-Practical-5
+(base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % python -m venv .venv
+(base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % source .venv/bin/activate 
+(.venv) (base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % pip install -r requirements.txt
+Requirement already satisfied: beautifulsoup4==4.14.0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (4.14.0)
+Requirement already satisfied: certifi==2025.8.3 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (2025.8.3)
+Requirement already satisfied: charset-normalizer==3.4.3 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.4.3)
+Requirement already satisfied: idna==3.10 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (3.10)
+Requirement already satisfied: joblib==1.5.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (1.5.2)
+Requirement already satisfied: numpy==2.3.3 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (2.3.3)
+Requirement already satisfied: pandas==2.3.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (2.3.2)
+Requirement already satisfied: python-dateutil==2.9.0.post0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (2.9.0.post0)
+Requirement already satisfied: pytz==2025.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (2025.2)
+Requirement already satisfied: requests==2.32.5 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 10)) (2.32.5)
+Requirement already satisfied: scikit-learn==1.7.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 11)) (1.7.2)
+Requirement already satisfied: scipy==1.16.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 12)) (1.16.2)
+Requirement already satisfied: six==1.17.0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 13)) (1.17.0)
+Requirement already satisfied: soupsieve==2.8 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 14)) (2.8)
+Requirement already satisfied: threadpoolctl==3.6.0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 15)) (3.6.0)
+Requirement already satisfied: typing_extensions==4.15.0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 16)) (4.15.0)
+Requirement already satisfied: tzdata==2025.2 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 17)) (2025.2)
+Requirement already satisfied: urllib3==2.5.0 in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.venv/lib/python3.12/site-packages (from -r requirements.txt (line 18)) (2.5.0)
+
+[notice] A new release of pip is available: 24.2 -> 25.2
+[notice] To update, run: python -m pip install --upgrade pip
+(.venv) (base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % make all
+python src/fetch_data.py
+2025-09-28 09:24:35,176 INFO: Saved mystery HTML to data/raw/mystery-20250928-092434.html
+2025-09-28 09:24:35,673 INFO: Saved poetry HTML to data/raw/poetry-20250928-092435.html
+2025-09-28 09:24:36,168 INFO: Saved science HTML to data/raw/science-20250928-092435.html
+python src/scrape_books.py
+Saved 265 books into data/processed/books.csv
+python src/clean_books.py
+Loaded 265 rows from data/processed/books.csv
+Saved cleaned dataset to data/processed/books_clean.csv
+Stored cleaned dataset in SQLite: data/books.db
+🔍 Preview from SQLite:
+                            title   label
+0            a light in the attic  poetry
+1                 the black maria  poetry
+2           shakespeare's sonnets  poetry
+3                            olio  poetry
+4  you can't bury them all: poems  poetry
+python src/classify.py
+Loaded 265 rows for classification
+Accuracy: 1.000
+Classification Report:
+              precision    recall  f1-score   support
+
+     mystery       1.00      1.00      1.00        20
+      poetry       1.00      1.00      1.00        19
+     science       1.00      1.00      1.00        14
+
+    accuracy                           1.00        53
+   macro avg       1.00      1.00      1.00        53
+weighted avg       1.00      1.00      1.00        53
+
+Metrics saved to logs/metrics.csv
