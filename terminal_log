@@ -89,4 +89,3 @@ Saved science HTML to data/raw/science-20250928-084957.html
 (.venv) (base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % git init
 Initialized empty Git repository in /Users/bettykim/Desktop/Master DSS/Reproducibility & Model Deployment/MLOps-Practical-5/.git/
 (.venv) (base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % git remote add origin https://github.com/bettybluee/MLOps-Practical-5 
-(.venv) (base) bettykim@Bettys-MacBook-Air MLOps-Practical-5 % 
