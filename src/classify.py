@@ -53,9 +53,20 @@ class Classifier:
 
         return clf
 
-# --- 실행 ---
 if __name__ == "__main__":
     classifier = Classifier()
     df = classifier.load_data(source="csv")          # 또는 source="sqlite"
     X_train_vec, X_test_vec, y_train, y_test, vec = classifier.preprocess(df)
-    classifier.train_and_evaluate(X_train_vec, X_test_vec, y_train, y_test, classifier_type="logistic")
+    clf = classifier.train_and_evaluate(
+        X_train_vec, X_test_vec, y_train, y_test, classifier_type="logistic"
+    )
+
+    # --- 7. save model + vectorizer ---
+    import joblib
+    import os
+
+    os.makedirs("models", exist_ok=True)
+    joblib.dump(clf, "models/model.pkl")
+    joblib.dump(vec, "models/vectorizer.pkl")
+
+    print("Model and vectorizer saved in 'models/'")
