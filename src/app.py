@@ -3,8 +3,21 @@ import requests
 
 st.title("My Text Classifier")
 
-txt = st.text_area("Enter text:")
+# Sidebar example input
+example_input = st.sidebar.selectbox(
+    "Try an example input",
+    ["I love this!", "This is terrible.", "Not sure about this."]
+)
+
+# Main text area, defaulting to sidebar selection
+user_input = st.text_area("Or enter your own text:", value=example_input)
 
 if st.button("Predict"):
-    r = requests.post("http://localhost:8000/predict", json={"text": txt})
-    st.write("Prediction:", r.json()["prediction"])
+    try:
+        # Send request to FastAPI server
+        response = requests.post("http://localhost:8000/predict", json={"text": user_input})
+        st.write("Prediction:", response.json()["prediction"])
+    except:
+        st.write("⚠️ Make sure the FastAPI server is running.")
+
+
